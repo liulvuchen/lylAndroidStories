@@ -1,0 +1,5 @@
+在项目.git/config内写上
+[credential]
+    
+    helper = store
+下次登陆账号密码之后  以后提交该项目就不需要再填写账号密码
