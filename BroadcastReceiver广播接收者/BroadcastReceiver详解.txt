@@ -1,0 +1,43 @@
+/**
+ * registerReceiver是android.content.ContextWrapper类中的方法，Activity和Service都继承 * ContextWrapper，所以可以直接调用。
+ * registerReceiver分别有静态注册（这种方式的注册是常驻型的，也就是说当应用关闭后，如果有广 * 播信息传来，MyReceiver也会被系统调用而自动运行。）
+ * 与动态注册（我们在Activity或Service中注册了一个BroadcastReceiver，当这个Activity或Service被销毁时如果没有解除注册，系统会报一个异常，提示我们是否忘记解除注册了。所以，记得在特定的地方执行解除注册操作）；
+ */
+
+//《静态注册》这种方式的注册是常驻型的，也就是说当应用关闭后，如果有广播信息传来，MyReceiver也会被系统调用而自动运行。
+<receiver android:name=".ThreeBroadcastReceiver">
+    <!--priority控制广播接收者的顺序-->
+    <intent-filter android:priority="1">
+        <!--name是广播地址-->
+        <action android:name="com.lyl.test" />
+    </intent-filter>
+</receiver>
+
+//开启BroadcastReceiver
+//"com.lyl.test"为广播地址
+Intent intent = new Intent("com.lyl.test");
+intent.putExtra("test", "时间");
+//sendBroadcast也是android.content.ContextWrapper类中的方法，它可以将一个指定地址和参数信息的Intent对象以广播的形式发送出去。
+sendBroadcast(intent);
+
+//《动态注册》非常驻型，我们在Activity或Service中注册了一个BroadcastReceiver，当这个Activity或Service被销毁时如果没有解除注册，系统会报一个异常，提示我们是否忘记解除注册了。所以，记得在特定的地方执行解除注册操作
+	FirstBroadcastReceiver firstBroadcastReceiver=new FirstBroadcastReceiver();
+	//如果静态注册过，动态注册的广播地址会叠加在一起
+        IntentFilter intentFilter=new IntentFilter("com.lyl.sj");
+        registerReceiver(firstBroadcastReceiver,intentFilter);
+
+报异常：Activity com.lyl.broadcastreceiverdemo.MainActivity has leaked IntentReceiver com.lyl.broadcastreceiverdemo.FirstBroadcastReceiver@422f2a00 that was originally registered here. Are you missing a call to unregisterReceiver()?
+这说明你没有把接收者关闭,要在activity生命周期onDestroy内关闭：unregisterReceiver(receiver);
+
+
+/**
+ *广播分为普通广播和有序广播
+ */
+//《普通广播（Normal Broadcast）》普通广播对于多个接收者来说是完全异步的，通常每个接收者都无需等待即可以接收到广播，接收者相互之间不会有影响。对于这种广播，接收者无法终止广播，即无法阻止其他接收者的接收动作。
+使用在接收者上的onReceive方法内写abortBroadcast();也无法关闭。
+
+//《有序广播（Ordered Broadcast）》有序广播比较特殊，它每次只发送到优先级较高的接收者那里，然后由优先级高的接受者再传播到优先级低的接收者那里，优先级高的接收者有能力终止这个广播。
+
+现在<intent-filter>多了一个android:priority属性，并且依次减小。这个属性的范围在-1000到1000，数值越大，优先级越高。
+
+异常：java.lang.RuntimeException: BroadcastReceiver trying to return result during a non-ordered broadcast

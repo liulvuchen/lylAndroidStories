@@ -1,0 +1,15 @@
+ListView lv_address = (ListView) findViewById(R.id.lv_address);
+        String[] projection = {Contacts._ID, Contacts.DISPLAY_NAME};//id与名称
+        ContentResolver musicResolver = getContentResolver();
+        //游标结果集里有很多的数据记录，像是通讯录这样的结果集，把名称，id在游标内找出
+        Cursor cursor = musicResolver.query(
+                Contacts.CONTENT_URI,
+                projection,
+                null, null, null);
+        if (cursor != null) {
+        //把获取的Cursor对象交给Activity管理，这样Cursor的生命周期就和Activity自动同步了，这样在Activity结束的时候就能自动结束Cursor的使用。使用前最好是先判断Cursor是否为空，以免发生错误，而且使用后也要用stopManagingCursor()方法来停掉它。
+            startManagingCursor(cursor);
+        }
+        lv_address.setAdapter(new SimpleCursorAdapter(MainActivity.this, R.layout.item_phone, cursor, projection, new int[]{R.id.textView1, R.id.textView2}));
+        //用完游标之后记得释放掉
+        stopManagingCursor(cursor);

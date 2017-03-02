@@ -1,0 +1,146 @@
+package com.lyl.demo5;
+
+
+import android.app.Activity;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+/**
+ * 适用于简单的异步处理。多个异步会出现问题:开启多个异步，再调用关闭方法会出现无法关闭的情况
+ */
+public class MainActivity extends Activity {
+
+
+    MyAsyncTask task;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        ((Button) findViewById(R.id.button1)).setOnClickListener(new View.OnClickListener() {
+            /*
+             * start
+             * (non-Javadoc)
+             * @see android.view.View.OnClickListener#onClick(android.view.View)
+             */
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                task = new MyAsyncTask();
+                task.execute(10);
+            }
+        });
+        ((Button) findViewById(R.id.button2)).setOnClickListener(new View.OnClickListener() {
+            /*
+             * noraml
+             * (non-Javadoc)
+             * @see android.view.View.OnClickListener#onClick(android.view.View)
+             */
+            @Override
+            public void onClick(View v) {
+                if(task!=null){
+                    // 结束AsyncTask
+                    task.cancel(true);
+                    task = null;
+                }
+            }
+        });
+    }
+
+    /*
+     * 点击back键后，AsyncTask进行关闭
+     * (non-Javadoc)
+     * @see android.app.Activity#onDestroy()
+     */
+    @Override
+    protected void onDestroy() {
+        if (task != null) {
+            task.cancel(true);
+        }
+        super.onDestroy();
+    }
+
+    class MyAsyncTask extends AsyncTask<Integer, Integer, Boolean> {
+
+        /*
+         * （初始化）
+         * 执行线程时，会立即做的初始化的动作
+         * 当初始化完成后，就会执行doInBackground后台工作
+         * (non-Javadoc)
+         * @see android.os.AsyncTask#onPreExecute()
+         */
+        @Override
+        protected void onPreExecute() {
+            ((TextView) findViewById(R.id.textView1)).setText("start");
+            super.onPreExecute();
+        }
+
+        /*
+         * （更新进度）
+         * 会显示在主界面上
+         * (non-Javadoc)
+         * @see android.os.AsyncTask#onProgressUpdate(Progress[])
+         */
+        @Override
+        protected void onProgressUpdate(Integer... values) {
+            // TODO Auto-generated method stub
+            super.onProgressUpdate(values);
+//			String s=((TextView)findViewById(R.id.textView1)).getText().toString();
+            ((TextView) findViewById(R.id.textView1)).setText(values[0] + "s");
+        }
+
+        /*
+         * （后台操作）
+         * block operation(阻塞操作的模拟)
+         * @see android.os.AsyncTask#doInBackground(Params[])
+         */
+        @Override
+        protected Boolean doInBackground(Integer... params) {
+            try {
+                for (int i = 0; i < params[0]; i++) {
+                    if (isCancelled()) {//是否停止循环
+                        break;
+                    }
+                    publishProgress(i);//这里会调用onProgressUpdate
+                    Log.d("TTTT", i + "sec pass");
+                    Thread.sleep(1 * 1000);
+
+                }
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+
+            return false;
+        }
+
+        /*
+         * 正常情况下，不会去调用(结束AsyncTask)
+         * 除非你对task进行了cancel
+         * (non-Javadoc)
+         * @see android.os.AsyncTask#onCancelled()
+         */
+        @Override
+        protected void onCancelled() {
+            ((TextView) findViewById(R.id.textView1)).setText("canceled");
+            super.onCancelled();
+        }
+
+        /*
+         * （完成刷新）
+         *把运行结果给主线程
+         */
+        @Override
+        protected void onPostExecute(Boolean result) {
+            ((TextView) findViewById(R.id.textView1)).setText("finish   " + result);
+            super.onPostExecute(result);
+        }
+
+    }
+
+
+}
