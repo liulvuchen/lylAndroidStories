@@ -6,3 +6,9 @@
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 <!--读写内存卡状态-->
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+<!--接收开机启动广播的权限-->
+<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+<!--网络状态相关的API的权限-->
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/> 
+<!--电量变化的权限-->
+<uses-permission android:name="android.permission.BATTERY_STATS" />

@@ -1,0 +1,6 @@
+Intent batteryIntent = getApplicationContext().registerReceiver(null,  
+        new IntentFilter(Intent.ACTION_BATTERY_CHANGED));  
+int currLevel = batteryIntent.getIntExtra(BatteryManager.EXTRA_LEVEL, 0);  
+int total = batteryIntent.getIntExtra(BatteryManager.EXTRA_SCALE, 1);  
+int percent = currLevel * 100 / total;  
+Log.i("battery", "battery: " + percent + "%");  
