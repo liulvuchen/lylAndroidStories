@@ -1,0 +1,1 @@
+Analyze ->inspect code是检测项目内代码的不规范性，先看Android内的，在看那些errors的，在看警告的warnings

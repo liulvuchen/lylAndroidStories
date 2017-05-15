@@ -1,0 +1,42 @@
+1.开启新线程 
+new Thread(new Runnable(){   
+
+    public void run(){   
+
+        Thread.sleep(XXXX);   
+
+        handler.sendMessage(); //告诉主线程执行任务   
+
+    }   
+
+}).start 
+
+2.利用定时器
+TimerTask task = new TimerTask(){   
+
+    public void run(){   
+
+    //execute the task 
+
+    }   
+
+};   
+
+Timer timer = new Timer(); 
+
+timer.schedule(task, delay); 
+
+
+
+3.new Handler().postDelayed(new Runnable(){   
+
+    public void run() {   
+
+    //execute the task   
+
+    }   
+
+ }, delay);  
+
+
+4.利用AlarmManager，特点时刻广播指定意图 能实现，一般的简单任务不这么做。 

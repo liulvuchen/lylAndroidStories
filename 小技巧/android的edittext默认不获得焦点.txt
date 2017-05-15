@@ -1,0 +1,6 @@
+一个布局文件里第一个EditText或默认获得焦点，如果想让默认不获得，则：
+可以在EditText前面放置一个看不到的LinearLayout，让他率先获取焦点：
+<LinearLayout
+        android:focusable="true" android:focusableInTouchMode="true"
+        android:layout_width="0px" android:layout_height="0px"/>
+或者，让EditText之前的控件先获得焦点，都行。
