@@ -1,0 +1,1 @@
+tv.setCompoundDrawablesRelativeWithIntrinsicBounds(carBean.getModels(), 0, 0, 0);

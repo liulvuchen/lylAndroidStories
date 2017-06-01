@@ -1,0 +1,6 @@
+public float getTextWidth(Context context, String text, int textSize){
+        TextPaint paint = new TextPaint();
+        float scaledDensity = getResources().getDisplayMetrics().scaledDensity;
+        paint.setTextSize(scaledDensity * textSize);
+        return paint.measureText(text);
+    }
