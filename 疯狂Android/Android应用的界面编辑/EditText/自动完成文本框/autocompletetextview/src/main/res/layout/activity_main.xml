@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--定义一个自动完成文本框,指定输入一个字符后进行提示-->
+    <AutoCompleteTextView
+        android:id="@+id/auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:completionHint="请选择您喜欢的图书:"
+        android:completionThreshold="1"
+        android:dropDownHorizontalOffset="10dp" />
+    <!--定义一个MultiAutoCompleteTextView组件-->
+    <MultiAutoCompleteTextView
+        android:id="@+id/mauto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:completionThreshold="1" />
+
+</LinearLayout>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:icon="@drawable/bill"
+        android:showAsAction="always|withText"
+        android:title="字体大小">
+        <menu>
+            <!--定义一组单选菜单项-->
+            <group android:checkableBehavior="single">
+                <!--定义多个菜单项-->
+                <item
+                    android:id="@+id/font_10"
+                    android:title="10号字体" />
+                <item
+                    android:id="@+id/font_12"
+                    android:title="12号字体" />
+                <item
+                    android:id="@+id/font_14"
+                    android:title="14号字体" />
+                <item
+                    android:id="@+id/font_16"
+                    android:title="16号字体" />
+                <item
+                    android:id="@+id/font_18"
+                    android:title="18号字体" />
+            </group>
+        </menu>
+    </item>
+    <!--定义一个普通的菜单项-->
+    <item
+        android:id="@+id/plain_item"
+        android:showAsAction="always|withText"
+        android:title="普通菜单项"></item>
+    <item
+        android:icon="@drawable/bill"
+        android:showAsAction="always|withText"
+        android:title="字体颜色">
+        <menu>
+            <!--定义一组允许复选的菜单项-->
+            <group>
+                <!--定义三个菜单项-->
+                <item
+                    android:id="@+id/red_font"
+                    android:title="红色" />
+                <item
+                    android:id="@+id/green_font"
+                    android:title="绿色" />
+                <item
+                    android:id="@+id/blue_font"
+                    android:title="蓝色" />
+            </group>
+        </menu>
+    </item>
+</menu>

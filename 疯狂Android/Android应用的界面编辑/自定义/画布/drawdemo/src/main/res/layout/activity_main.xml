@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/rl_bar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#fff"
+        android:paddingTop="25dp"
+        >
+
+        <!-- 左边 -->
+
+        <LinearLayout
+            android:id="@+id/ll_base_left_titlebar_container"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+
+            <TextView
+                android:id="@+id/btn_savesd"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="保存"
+                android:textColor="#4dd0c8"
+                android:textSize="14dp" />
+        </LinearLayout>
+
+        <!-- 右边 -->
+
+        <LinearLayout
+            android:id="@+id/ll_base_right_titlebar_container"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            tools:ignore="RelativeOverlap">
+
+            <TextView
+                android:id="@+id/btn_last"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="10dp"
+                android:background="#f0f"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="撤销" />
+
+            <TextView
+                android:id="@+id/btn_recover"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="10dp"
+                android:background="#f0f"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="恢复" />
+
+            <TextView
+                android:id="@+id/btn_paintsize"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="10dp"
+                android:background="#f0f"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="笔号" />
+
+            <TextView
+                android:id="@+id/btn_paintcolor"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="10dp"
+                android:background="#f0f"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="笔色" />
+
+            <TextView
+                android:id="@+id/btn_paintstyle"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="10dp"
+                android:background="#f0f"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="擦除" />
+
+            <TextView
+                android:id="@+id/btn_redo"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="#f0f"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="重做" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+    <SeekBar
+        android:id="@+id/sb_size"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_bar"/>
+
+    <TextView
+        android:id="@+id/tv_line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/sb_size"
+        android:background="#e3e3e3" />
+
+    <FrameLayout
+        android:id="@+id/fl_boardcontainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tv_line"/>
+</RelativeLayout>

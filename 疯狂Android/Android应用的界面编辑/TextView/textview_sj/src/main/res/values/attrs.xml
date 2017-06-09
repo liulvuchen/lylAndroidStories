@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CirclePercentView">
+        <attr name="radius" format="dimension"/>
+        <attr name="stripeWidth" format="dimension"/><!--色带宽度-->
+        <!--第一个圆距离第四个圆的距离-->
+        <attr name="stripeWidth_2" format="dimension"/>
+        <attr name="percent" format="integer"/><!--百分比 最大值为100-->
+        <attr name="smallColor" format="color"/><!--色带宽度-->
+        <!--外圈颜色-->
+        <attr name="bigColor" format="color"/>
+        <!--小圆的颜色-->
+        <attr name="xiaoyuanColor" format="color"/>
+        <!--最里面圆的颜色-->
+        <attr name="zuilimianyuanColor" format="color"/>
+
+        <!--中间字体颜色-->
+        <attr name="centerTextSize" format="dimension"/>
+        <!--色带宽度-->
+    </declare-styleable>
+</resources>

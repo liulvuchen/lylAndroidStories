@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="paintcolor">
+        <item>R.color.colorAccent</item>
+        <item>R.color.colorPrimaryDark</item>
+        <item>R.color.colorPrimary</item>
+    </string-array>
+</resources>

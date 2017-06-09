@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">ListViewTween</string>
+    <string-array name="books">
+        <item>时间</item>
+        <item>时间</item>
+        <item>时间</item>
+        <item>时间</item>
+        <item>时间</item>
+        <item>时间</item>
+        <item>时间</item>
+        <item>时间</item>
+        <item>时间</item>
+        <item>时间</item>
+        <item>时间</item>
+        <item>时间</item>
+        <item>时间</item>
+        <item>时间</item>
+        <item>时间</item>
+        <item>时间</item>
+        <item>时间</item>
+        <item>时间</item>
+        <item>时间</item>
+        <item>时间</item>
+        <item>时间</item>
+    </string-array>
+</resources>

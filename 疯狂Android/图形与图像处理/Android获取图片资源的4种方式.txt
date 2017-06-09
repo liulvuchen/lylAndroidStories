@@ -1,0 +1,28 @@
+ 1. 图片放在sdcard中，
+
+　　Bitmap imageBitmap = BitmapFactory.decodeFile(path) (path 是图片的路径，跟目录是/sdcard)
+ 
+　　2. 图片在项目的res文件夹下面
+　　//得到application对象
+　　ApplicationInfo appInfo = getApplicationInfo();
+　　//得到该图片的id(name 是该图片的名字，"drawable" 是该图片存放的目录，appInfo.packageName是应用程序的包)
+　　int resID = getResources().getIdentifier(name, "drawable", appInfo.packageName);
+ 
+//代码如下
+ 
+public Bitmap getRes(String name) {
+ApplicationInfo appInfo = getApplicationInfo();
+int resID = getResources().getIdentifier(name, "drawable", appInfo.packageName);
+return BitmapFactory.decodeResource(getResources(), resID);
+}
+ 
+ 
+　　3. 图片放在src目录下
+　　String path = "com/xiangmu/test.png"; //图片存放的路径
+　　InputStream is = getClassLoader().getResourceAsStream(path); //得到图片流
+ 
+4.Android中有个Assets目录,这里可以存放只读文件
+ 
+资源获取的方式为
+ 
+InputStream is = getResources().getAssets().open(name)；

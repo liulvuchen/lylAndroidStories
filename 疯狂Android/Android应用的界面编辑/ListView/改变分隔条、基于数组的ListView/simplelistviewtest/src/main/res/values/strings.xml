@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">SimpleListViewTest</string>
+    <string-array name="books">
+        <item>sdad</item>
+        <item>sdad</item>
+        <item>sdad</item>
+        <item>sdad</item>
+        <item>sdad</item>
+        <item>sdad</item>
+        <item>sdad</item>
+        <item>sdad</item>
+        <item>sdad</item>
+        <item>sdad</item>
+        <item>sdad</item>
+    </string-array>
+</resources>

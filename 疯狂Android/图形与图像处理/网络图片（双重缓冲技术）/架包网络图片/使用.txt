@@ -1,0 +1,3 @@
+Picasso.with(getContext()).load(URL).into(imageview);
+
+http://blog.csdn.net/fancylovejava/article/details/43760119

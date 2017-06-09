@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Activity_Fragment_lyl</string>
+    <array name="gender_name_list">
+        <item>男</item>
+        <item>女</item>
+    </array>
+    <array name="gender_value_list">
+        <item>石晶</item>
+        <item>王强</item>
+        <item>刘某人</item>
+    </array>
+    <array name="light_strength_list">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </array>
+    <array name="light_value_list">
+        <item>1!</item>
+        <item>2!</item>
+        <item>3!</item>
+    </array>
+</resources>

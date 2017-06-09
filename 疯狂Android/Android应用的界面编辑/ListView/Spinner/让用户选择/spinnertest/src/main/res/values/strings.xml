@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">SpinnerTest</string>
+
+    <string-array name="books">
+        <item>疯狂阿打算</item>
+        <item>疯狂阿打算3</item>
+        <item>疯狂阿打算2</item>
+        <item>疯狂阿打算1</item>
+        <item>疯狂阿打算4</item>
+    </string-array>
+    <string name="tip">开始</string>
+</resources>

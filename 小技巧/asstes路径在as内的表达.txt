@@ -1,0 +1,1 @@
+String path = "file://android_asset/guojia.xml";
